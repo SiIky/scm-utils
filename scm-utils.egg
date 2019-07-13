@@ -1,0 +1,14 @@
+; vim: ft=scheme
+((author "siiky")
+ (license "unlicense")
+ (synopsis "Scheme Utilities")
+ (version "0.0.1")
+ (dependencies
+   matchable
+   srfi-41
+   srfi-42)
+ (component-options (csc-options "-O0" "-d3"))
+ (components
+   (extension scm-utils
+              (modules scm-utils)
+              (source scm-utils.scm))))

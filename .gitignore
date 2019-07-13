@@ -5,3 +5,11 @@
 *.scm~
 *.scm#*
 .#*.scm
+
+scm-utils.build.sh
+scm-utils.import.scm
+scm-utils.import.so
+scm-utils.install.sh
+scm-utils.link
+scm-utils.so
+scm-utils.static.o
