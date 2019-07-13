@@ -2,6 +2,7 @@
   scm-utils
   (
    divides?
+   foreach/enum
    prime-factors
    primes
    primes<
@@ -28,6 +29,15 @@
 
   (define (++ n) (+ n 1))
   (define (-- n) (- n 1))
+
+  (define (foreach/enum f l)
+    (let loop ((idx 0)
+               (l l))
+      (unless (null? l)
+        (let ((head (car l))
+              (tail (cdr l)))
+          (f idx head)
+          (loop (++ idx) tail)))))
 
   (define (divides? m n)
     (or (= m n)

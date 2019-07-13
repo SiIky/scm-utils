@@ -7,7 +7,6 @@
    matchable
    srfi-41
    srfi-42)
- (component-options (csc-options "-O0" "-d3"))
  (components
    (extension scm-utils
               (modules scm-utils)
