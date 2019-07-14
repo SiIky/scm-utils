@@ -1,10 +1,12 @@
 (module
   scm-utils
   (
+   !f?
    divides?
    foreach/enum
    prime-factors
    primes
+   primes-while
    primes<
    primes<=
    undefined
@@ -30,6 +32,8 @@
   (define (++ n) (+ n 1))
   (define (-- n) (- n 1))
 
+  (define (!f? x f) (if x (f x) x))
+
   (define (foreach/enum f l)
     (let loop ((idx 0)
                (l l))
@@ -44,8 +48,9 @@
         (and (< m n)
              (zero? (modulo n m)))))
 
-  (define (primes<  n) (stream-take-while (cut <  <> n) prime-numbers-stream))
-  (define (primes<= n) (stream-take-while (cut <= <> n) prime-numbers-stream))
+  (define (primes-while f) (stream-take-while f prime-numbers-stream))
+  (define (primes<  n) (primes-while (cut <  <> n)))
+  (define (primes<= n) (primes-while (cut <= <> n)))
   (define (primes #!optional (n #f)) (if n (stream-take n prime-numbers-stream) prime-numbers-stream))
 
   (define (prime-factors n #!optional (inc-order? #f))
